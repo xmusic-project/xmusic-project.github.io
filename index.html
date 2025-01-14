@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="XMusic: Towards a Generalized and Controllable Symbolic Music Generation Framework">
+  <meta name="keywords" content="AIGC, Music Generation, Multi-Modal Parsing, Music Quality Assessment, Large-Scale MIDI Dataset">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XMusic</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEJNG776NC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EEJNG776NC');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">XMusic: Towards a Generalized and Controllable Symbolic Music Generation Framework</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a>Sida Tian</a><sup>♪</sup>,
+            </span>
+            <span class="author-block">
+              <a>Can Zhang</a><sup>♪</sup>,
+            </span>
+            <span class="author-block">
+              <a>Wei Yuan</a><sup>♪</sup>,
+            </span>
+            <span class="author-block">
+              <a>Wei Tan</a>,
+            </span>
+            <span class="author-block">
+              <a>Wenjie Zhu</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><i>@Tencent</i></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://sites.google.com/view/xmusicdemos"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Demo Page</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>XMIDI Dataset</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In recent years, remarkable advancements in artificial intelligence-generated content (AIGC) have been achieved in the fields of image synthesis and text generation, generating content comparable to that produced by humans. However, the quality of AI-generated music has not yet reached this standard, primarily due to the challenge of effectively controlling musical emotions and ensuring high-quality outputs. This paper presents a generalized symbolic music generation framework, XMusic, which supports flexible prompts (<i>i.e.</i>, images, videos, texts, tags, and humming) to generate emotionally controllable and high-quality symbolic music. XMusic consists of two core components, XProjector and XComposer. XProjector parses the prompts of various modalities into symbolic music elements (<i>i.e.</i>, emotions, genres, rhythms and notes) within the projection space to generate matching music. XComposer contains a Generator and a Selector. The Generator generates emotionally controllable and melodious music based on our innovative symbolic music representation, whereas the Selector identifies high-quality symbolic music by constructing a multi-task learning scheme involving quality assessment, emotion recognition, and genre recognition tasks. In addition, we build XMIDI, a large-scale symbolic music dataset that contains 108,023 MIDI files annotated with precise emotion and genre labels. Objective and subjective evaluations show that XMusic significantly outperforms the current state-of-the-art methods with impressive music quality. Our XMusic has been awarded as one of the nine <i>Highlights of Collectibles at WAIC 2023</i>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </br>
+
+    <!-- Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="column has-text-centered">
+            <img src="./static/images/overview.png"
+                 class="interpolation-image"
+                 width="80%"
+                 alt="The architectural overview of XMusic."/>
+            <p class="is-bold">Fig.1: The architectural overview of XMusic.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Our XMusic contains two essential components: XProjector and XComposer. XProjector parses various input prompts into specific symbolic music elements. These elements then serve as control signals, guiding the music generation process within the Generator of XComposer. Additionally, XComposer includes a Selector that evaluates and identifies high-quality generated music. The Generator is trained on our large-scale dataset, XMIDI, which includes precise emotion and genre labels.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Overview. -->
+  </br>
+
+    <!-- XMIDI. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">XMIDI Dataset</h2>
+        <div class="column has-text-centered">
+            <img src="./static/images/xmidi.png"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">Fig.2: Data statistics of our XMIDI dataset.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Existing publicly available symbolic music datasets suffer from limitations in both scale and label completeness. To address this gap, we built XMIDI, the largest known symbolic music dataset with precise emotion and genre labels, comprising 108,023 MIDI files. The average duration of the music pieces is around 176 seconds, resulting in a total dataset length of around 5,278 hours.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ XMIDI. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Demos. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Demos</h2>
+
+        <!-- Video Prompt. -->
+        <h3 class="title is-4">Video Prompt</h3>
+        <div class="content has-text-justified">
+          <p>
+            Here are some videos generated by <a href="https://openai.com/index/sora/" target="_blank">OpenAI Sora</a>, with music generated by XMusic.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+
+          <div class="column has-text-centered">
+            <video id="matting-video" controls playsinline width="100%">
+              <source src="./static/videos/dancing-kangaroo_XMusic.mp4"
+                      type="video/mp4">
+            </video>
+            <p>dancing-kangaroo.mp4</p>
+          </div>
+
+          <div class="column has-text-centered">
+            <video id="matting-video" controls playsinline width="100%">
+              <source src="./static/videos/flower-blooming_XMusic.mp4"
+                      type="video/mp4">
+            </video>
+            <p>flower-blooming.mp4</p>
+          </div>
+
+        </div>
+        <!-- <br/> -->
+        <div class="columns is-vcentered interpolation-panel">
+
+          <div class="column has-text-centered">
+            <video id="matting-video" controls playsinline width="100%">
+              <source src="./static/videos/lagos_XMusic.mp4"
+                      type="video/mp4">
+            </video>
+            <p>lagos.mp4</p>
+          </div>
+
+          <div class="column has-text-centered">
+            <video id="matting-video" controls playsinline width="100%">
+              <source src="./static/videos/robot-video-game_XMusic.mp4"
+                      type="video/mp4">
+            </video>
+            <p>robot-video-game.mp4</p>
+          </div>
+
+        </div>
+        <br/>
+
+        <!-- Tag Prompt. -->
+        <h3 class="title is-4">Tag Prompt</h3>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/emotion/happy.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Emotion] happy</p>
+          </div>
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/emotion/exciting.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Emotion] exciting</p>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/emotion/romantic.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Emotion] romantic</p>
+          </div>
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/emotion/sad.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Emotion] sad</p>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/emotion/warm.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Emotion] warm</p>
+          </div>
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/emotion/fear.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Emotion] fear</p>
+          </div>
+        </div>
+      </br>
+
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/genre/classical.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Genre] classical</p>
+          </div>
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/genre/country.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Genre] country</p>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/genre/folk.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Genre] folk</p>
+          </div>
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/genre/jazz.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Genre] jazz</p>
+          </div>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/genre/pop.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Genre] pop</p>
+          </div>
+          <div class="column has-text-centered">
+            <audio controls width="100%">
+              <source src="./static/audios/genre/rock.mp3"
+                      type="audio/mpeg">
+            </audio>
+            <p>[Genre] rock</p>
+          </div>
+        </div>
+        </br>
+
+        <h3 class="title is-4">Multi-Modal Prompt</h3>
+        <div class="content has-text-justified">
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+
+          <div class="column has-text-centered">
+            <video id="matting-video" controls playsinline width="60%">
+              <source src="./static/videos/coffeeshop.mov"
+                      type="video/mp4">
+            </video>
+            <p>coffeeshop (text+video)</p>
+          </div>
+
+          <div class="column has-text-centered">
+            <video id="matting-video" controls playsinline width="60%">
+              <source src="./static/videos/library.mov"
+                      type="video/mp4">
+            </video>
+            <p class="is-bold">library (text+video)</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!--/ Demos. -->
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{xmusic2025,
+  title={XMusic: Towards a Generalized and Controllable Symbolic Music Generation Framework},
+  author={Tian, Sida and Zhang, Can and Yuan, Wei and Tan, Wei and Zhu, Wenjie},
+  journal={IEEE Transactions on Multimedia},
+  year={2025},
+  publisher={IEEE}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a
+              href="https://nerfies.github.io/">Nerfies</a>, under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
